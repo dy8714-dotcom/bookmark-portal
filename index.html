@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイブックマークポータル</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <h1>📚 マイブックマークポータル</h1>
+            <div class="header-actions">
+                <input type="text" id="searchInput" placeholder="🔍 ブックマークを検索..." class="search-input">
+                <button id="addCategoryBtn" class="btn btn-primary">➕ カテゴリー追加</button>
+                <button id="importBtn" class="btn btn-secondary">📥 インポート</button>
+                <button id="exportBtn" class="btn btn-secondary">📤 エクスポート</button>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main id="mainContent" class="main-content">
+            <!-- カテゴリーとブックマークがここに動的に追加されます -->
+        </main>
+
+        <!-- 統計情報 -->
+        <footer class="footer">
+            <div class="stats">
+                <span>カテゴリー数: <strong id="categoryCount">0</strong></span>
+                <span>ブックマーク数: <strong id="bookmarkCount">0</strong></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- カテゴリー追加/編集モーダル -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="categoryModalTitle">カテゴリーを追加</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="categoryNameInput" placeholder="カテゴリー名を入力" class="input-field">
+                <input type="color" id="categoryColorInput" value="#4CAF50" class="color-picker">
+                <label for="categoryColorInput">カテゴリーカラー</label>
+            </div>
+            <div class="modal-footer">
+                <button id="saveCategoryBtn" class="btn btn-primary">保存</button>
+                <button id="cancelCategoryBtn" class="btn btn-cancel">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ブックマーク追加/編集モーダル -->
+    <div id="bookmarkModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="bookmarkModalTitle">ブックマークを追加</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="bookmarkNameInput" placeholder="サイト名を入力" class="input-field">
+                <input type="url" id="bookmarkUrlInput" placeholder="https://example.com" class="input-field">
+                <textarea id="bookmarkDescInput" placeholder="説明（オプション）" class="input-field" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="saveBookmarkBtn" class="btn btn-primary">保存</button>
+                <button id="cancelBookmarkBtn" class="btn btn-cancel">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- インポートモーダル -->
+    <div id="importModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>データをインポート</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>エクスポートしたJSONファイルを選択してください</p>
+                <input type="file" id="importFileInput" accept=".json" class="input-field">
+            </div>
+            <div class="modal-footer">
+                <button id="confirmImportBtn" class="btn btn-primary">インポート</button>
+                <button id="cancelImportBtn" class="btn btn-cancel">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
